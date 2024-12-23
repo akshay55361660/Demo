@@ -1,0 +1,66 @@
+.calendar-box {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 238px;
+    background-color: skyblue;
+    margin-left: 40px;
+    border-radius: 15px;
+  }
+  
+  .date-box {
+    font-size: 24px;
+    margin-bottom: 0px;
+    padding: 10px;
+    background-color: blue;
+    text-align: center;
+    border-radius: 15px;
+  }
+  
+  .date-box div {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .date-box div:first-child {
+    font-size: 32px;
+    margin-bottom: 5px;
+  }
+  
+  .event-container {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: skyblue;
+    border-radius: 0px 0px 30px 30px;
+    text-align: center;
+    display: none; /* Initially hidden */
+  }
+  
+  #eventTable {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  #eventTable td {
+    border: 1px solid #000;
+    padding: 8px;
+  }
+  
+  #eventTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #noEventNotification {
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+  }
+  #eventyear{
+    background-color: skyblue;
+    color: red;
+  }
+  
+  

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Police Gallery</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="home_page.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style2.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .container-flex {
+      display: flex;
+      margin-top: 70px;
+      /* Adjust based on the header height */
+      height: calc(100vh - 70px);
+      background-color: white;
+    }
+
+
+    .sidebar {
+      color: white;
+      padding: 1rem;
+      /* position: fixed; */
+      height: 100%;
+      overflow: hidden;
+      background-color: #00509e;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 1rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .right-info {
+      /* width: 20%; */
+      background-color: whitesmoke;
+      color: black;
+      padding: 1rem;
+      /* position: fixed; */
+      right: 0;
+      height: 100%;
+      overflow: hidden;
+      /* background-image: -webkit-radial-gradient(right,orange,rgb(55, 20, 209),green); */
+    }
+
+    h1 {
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+      /* position: absolute; */
+      /* bottom: 10px; */
+    }
+
+    .slidbar {
+      padding: 0%;
+    }
+
+    .slidebar-activity {
+      padding: 0%;
+    }
+
+    hr {
+      margin: 0px 0px 8px 0px;
+    }
+
+    @media(min-width:767px) and (max-width:3840px) {
+      .container-flex {
+        position: fixed;
+      }
+    }
+
+    a {
+      color: #F1F1F1;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: indigo;
+    }
+
+    h3 {
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    @media (max-width: 1200px) {
+      .container-flex {
+        flex-direction: column;
+        margin-top: 50px;
+        height: auto;
+      }
+
+      .sidebar,
+      .right-info {
+        width: 100%;
+        padding: 10px;
+        height: auto;
+      }
+
+      .left-sidebar,
+      .right-sidebar {
+        text-align: center;
+      }
+
+      .sidebar ul li {
+        text-align: center;
+      }
+
+      .row .col-md-6 {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .card {
+        margin: 10px auto;
+      }
+
+      h1,
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .navbar-brand img {
+        width: 90px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .header {
+        padding: 0.5rem;
+      }
+
+      .container-flex {
+        margin-top: 40px;
+        flex-direction: column;
+      }
+
+      .sidebar,
+      .right-info {
+        width: 100%;
+        padding: 5px;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 5px;
+        text-align: center;
+      }
+
+      .sidebar-profile-box img {
+        width: 80px;
+      }
+
+      h1,
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      .card {
+        margin-bottom: 10px;
+        width: 90%;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .navbar-toggler {
+        padding: 0.2rem 0.5rem;
+      }
+
+      .sidebar ul li,
+      .slidebar-activity ul li {
+        font-size: 0.9rem;
+      }
+
+      h1,
+      h3 {
+        font-size: 1rem;
+      }
+
+      .navbar-brand img {
+        width: 70px;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: none;
+      }
+    }
+
+    #gallary {
+      color: #F1F1F1;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div class="fixed-top d-block">
+          <nav style="background-color: rgb(9, 9, 96);" class="navbar navbar-expand-md">
+            <div class="container">
+              <img src="assets/images/Martyrs-1.png" alt="">
+              <a class="navbar-brand ms-3" href="#"><img width="120px" src="assets/images/shyoury.png" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                  <a class="nav-link px-3 text-white" href="#">Home</a>
+                  <a class="nav-link px-3 text-white" href="#">Achivement</a>
+                  <a class="nav-link px-3 text-white" href="#"> Marty Time</a>
+                  <a class="nav-link px-3 text-white" href="#">surrendar moist</a>
+                  <a class="nav-link px-3 text-white" href="#">About Us</a>
+                  <li class="nav-item dropdown">
+                    <a id="gallary" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Gallary
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">propoganda</a></li>
+                      <li><a class="dropdown-item" href="#">civil action</a></li>
+                      <!-- <li>
+                        <hr class="dropdown-divider">
+                      </li> -->
+                      <li><a class="dropdown-item" href="#">C60</a></li>
+                    </ul>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+    </nav>
+
+
+  </header>
+  <div class="container-flex">
+    <div class="row">
+      <div class="col-md-3">
+        <aside class="sidebar">
+          <div class="left-sidebar">
+            <div class="sidebar-profile-box">
+              <img src="assets/images/profile-pic.png" width="100%">
+              <div class="sidebar-profile-info">
+                <div class="img-div">
+
+
+
+                </div>
+                <div class="slidebar" style="font-family: 'Times New Roman', Times, serif; ">
+                  <h1>Medal</h1>
+                  <h3 class="text-center">From 1988 Till Now</h3>
+                  <ul>
+                    <a href="#">
+                      <li class="text-start">shaurya Chakra &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp;&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;03</li>
+                    </a>
+                    <hr>
+                    <a href="#">
+                      <li class="text-start">PPMG &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 06</li>
+                    </a>
+                    <hr>
+                    <a href="#">
+                      <li class="text-start">PPMS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; 19</li>
+                    </a>
+                    <hr>
+                    <a href="#">
+                      <li class="text-start">PMS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;283</li>
+                    </a>
+                    <hr>
+                    <a href="#">
+                      <li class="text-start">DG Insigniya &nbsp;&nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1229
+                      </li>
+                    </a>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="sidebar-activity" style="font-family: 'Times New Roman', Times, serif;">
+              <h3 style="padding: 0px 0px 10px;">A martyred soldier in Maoist attack</h3>
+              <ul>
+                <a href="#">
+                  <li class="text-start">Gadchiroli Police &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;&nbsp;&nbsp;169</li>
+                  <hr>
+                </a>
+                <a href="#">
+                  <li class="text-start">SRPF &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;19</li>
+                </a>
+                <hr>
+                <a href="#">
+                  <li class="text-start">CRPF &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;20</li>
+                </a>
+                <hr>
+                <a href="#">
+                  <li class="text-start">ITBP &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                    &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;03</li>
+                </a>
+                <hr>
+                <a href="#">
+                  <li class="text-start">IRB &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;01</li>
+                </a>
+              </ul>
+            </div>
+        </aside>
+      </div>
+      <div class="col-md-6" style="overflow-y: auto; height: 100%;">
+        <div class="row my-3">
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <img src="assets/images/Shaurya sthal.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">1988 <span>Laheri</span> </h5>
+                <br>
+                <a href="###" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <aside class="right-info">
+          <div class="right-sidebar">
+            <div class="sidebar-news">
+              <!-- <img src="assets/images/left.png" class="info-icon" width="50px" height="50px"> -->
+              <!-- <h3 class="text-start">Martyr's</h3> -->
+              <br>
+
+
+              <!-- calender and notification box -->
+              <div class="calender">
+                <!-- Date Box-->
+                <div class="calendar-box">
+                  <!-- Date Box (Always visible) -->
+                  <div class="date-box" id="dateBox"></div>
+                  <!-- Event Table or Notification (Depends on events) -->
+                  <div class="event-container" id="eventContainer"></div>
+                </div>
+
+
+              </div>
+
+              <br>
+              <!-- <img src="assets/images/Shaurya sthal.png" width="100%"> -->
+
+            </div>
+          </div>
+          <div class="sidebar-news">
+            <div id="carouselExampleAutoplay" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1500"
+              style="width: 100%; height: 300px;">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="./assets/images/Chinta sir.png" class="d-block w-100" alt="Image 1">
+                  <br>
+                  <a style="color: indigo;" href="#">श्रद्धांजली ....</a><br>
+                  <span>नको मिळाया विश्रांतीच चीर! राहिलच कसा तो अनाम वीर!! जयासी मरणाची नसेच फीकीर!
+                    स्वयंप्रकाशित ...</span>
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/smark.jpg" class="d-block w-100" alt="Image 2">
+                  <br>
+                  <a style="color: indigo;" href="#">श्रद्धांजली ....</a><br>
+                  <span>नको मिळाया विश्रांतीच चीर! राहिलच कसा तो अनाम वीर!! जयासी मरणाची नसेच फीकीर!
+                    स्वयंप्रकाशित ...</span>
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/sp sir.png" class="d-block w-100" alt="Image 3">
+                  <br>
+                  <a style="color: indigo;" href="#">श्रद्धांजली ....</a><br>
+                  <span>नको मिळाया विश्रांतीच चीर! राहिलच कसा तो अनाम वीर!! जयासी मरणाची नसेच फीकीर!
+                    स्वयंप्रकाशित ...</span>
+                </div>
+              </div>
+
+              <!-- Optional controls (next and previous) -->
+              <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplay"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplay"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button> -->
+            </div>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+  <!-- Bootstrap JS (Optional for interactivity) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- Js file for calender -->
+  <script src="script.js"></script>
+</body>
+
+</html>
